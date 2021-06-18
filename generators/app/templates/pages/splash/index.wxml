@@ -1,0 +1,35 @@
+<!--pages/splash/index.wxml-->
+<image
+  class="splash-logo"
+  style="height:{{ height }};"
+  src="../../assets/images/splash/logo@2x.png"
+  mode="aspectFit"
+/>
+
+<view class="splash-name">
+  <%= name %>
+</view>
+
+<view class="splash-slogan">
+  <%= description %>
+</view>
+
+<view class="splash-action">
+  <van-button
+    wx:if="{{ isbind }}"
+    type="primary"
+    round
+  >
+    立即体验
+  </van-button>
+  <van-button
+    wx:else
+    open-type="getPhoneNumber"
+    type="primary"
+    disabled="{{ !checked }}"
+    round
+    bind:getphonenumber="getUserPhoneNumber"
+  >
+    绑定手机号
+  </van-button>
+</view>

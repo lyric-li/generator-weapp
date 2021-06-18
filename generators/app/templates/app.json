@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/splash/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packages/webview",
+      "name": "package-webview",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "moudles/log",
+      "name": "moudle-log",
+      "pages": [
+        "pages/index/index"
+      ],
+      "independent": true
+    }
+  ],
+  "preloadRule": {
+    "pages/splash/index": {
+      "network": "all",
+      "packages": [
+        "package-webview"
+      ]
+    },
+    "moudles/log/pages/index/index": {
+      "packages": [
+        "__APP__"
+      ]
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#00C5CD",
+    "borderStyle": "white",
+    "list": []
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "xxx",
+  "description": "",
+  "version": "1.0.0",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "lint:js": "eslint --fix app.js .eslintrc.js pages/ packages/ moudles/ store/ utils/",
+    "lint:style": "stylelint pages/ packages/ moudles/",
+    "lint": "npm run lint:js && npm run lint:style"
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.6.8",
+    "miniprogram-computed": "^4.0.3",
+    "mobx-miniprogram": "^4.13.2",
+    "mobx-miniprogram-bindings": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.23.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-standard-wxss": "^0.1.1",
+    "stylelint-order": "^4.1.0"
+  }
+}
