@@ -69,6 +69,12 @@ npm install
 
 #### 其它
 
+- 分包
+  
+  子包存放在 `packages` 目录下，独立子包存放在 `moudles` 目录下
+
+  配置文档详见微信[分包加载](https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages.html)官方文档
+
 - 工具类
 
   存放在 `utils` 目录下
