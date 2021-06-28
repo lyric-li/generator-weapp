@@ -1,9 +1,8 @@
 const { envVersion = 'develop' } = __wxConfig;
 
-
 /**
  * 环境映射关系
- * 小程序环境 - 蛮牛环境
+ * 小程序环境 - 环境
  * develop(开发版) - testing(测试)
  * trial(体验版) - testing(测试)
  * release(正式版) - production(正式)
@@ -19,25 +18,25 @@ const config = {
     wxVersion: envVersion,
     maniuVersion: 'dev',
     gateway: '/gateway',
-    baseUrl: 'https://xxx-dev.manniuhealth.com',
+    baseUrl: 'https://xxx-dev.com',
   },
   test: {
     wxVersion: envVersion,
     maniuVersion: 'test',
     gateway: '/gateway',
-    baseUrl: 'https://xxx-test.manniuhealth.com',
+    baseUrl: 'https://xxx-test.com',
   },
   pre: {
     wxVersion: envVersion,
     maniuVersion: 'pre',
     gateway: '/gateway',
-    baseUrl: 'https://xxx-pre.manniuhealth.com',
+    baseUrl: 'https://xxx-pre.com',
   },
   prod: {
     wxVersion: envVersion,
     maniuVersion: 'prod',
     gateway: '/gateway',
-    baseUrl: 'https://xxx.manniuhealth.com',
+    baseUrl: 'https://xxx.com',
   },
 };
 

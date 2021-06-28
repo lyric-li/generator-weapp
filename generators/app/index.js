@@ -140,8 +140,6 @@ module.exports = class extends Generator {
       "utils/emitter.js",
       "utils/env.js",
       "utils/error.js",
-      "utils/format.js",
-      "utils/sleep.js",
       "utils/update.js",
       "utils/wxp.js"
     ];
