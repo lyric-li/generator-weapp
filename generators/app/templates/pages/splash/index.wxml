@@ -7,11 +7,11 @@
 />
 
 <view class="splash-name">
-  <%= name %>
+  generator weapp demo
 </view>
 
 <view class="splash-slogan">
-  <%= description %>
+  A weapp seed project.
 </view>
 
 <view class="splash-action">

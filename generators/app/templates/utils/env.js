@@ -3,8 +3,8 @@ const { envVersion = 'develop' } = __wxConfig;
 /**
  * 环境映射关系
  * 小程序环境 - 环境
- * develop(开发版) - testing(测试)
- * trial(体验版) - testing(测试)
+ * develop(开发版) - dev(开发)
+ * trial(体验版) - test(测试)
  * release(正式版) - production(正式)
  */
 const envMap = {

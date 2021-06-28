@@ -1,10 +1,12 @@
 "use strict";
 const Generator = require("yeoman-generator");
-// eslint-disable-next-line no-unused-vars
-const install = require("yeoman-generator/lib/actions/install");
 const chalk = require("chalk");
 const yosay = require("yosay");
 const _ = require("lodash");
+const { resolvePath, walkSync } = require("./file");
+
+const fullPath = resolvePath("./templates");
+const skips = [`${fullPath}/package.json`, `${fullPath}/project.config.json`];
 
 module.exports = class extends Generator {
   // Note: arguments and options should be defined in the constructor.
@@ -94,55 +96,21 @@ module.exports = class extends Generator {
     this.fs.writeJSON(this.destinationPath("project.config.json"), config);
   }
 
-  renderTplFile() {
-    let target = [
-      ["_editorconfig", ".editorconfig"],
-      ["_eslintignore", ".eslintignore"],
-      ["_eslintrc.js", ".eslintrc.js"],
-      ["_gitignore", ".gitignore"],
-      ["_stylelintignore", ".stylelintignore"],
-      ["_stylelintrc.js", ".stylelintrc.js"],
-      "app.js",
-      "app.json",
-      "app.wxss",
-      "sitemap.json",
-      "README.md",
-      "api/user.js",
-      "assets/images/splash/logo@2x.png",
-      "assets/styles/.gitkeep",
-      "components/.gitkeep",
-      "lib/eventemitter2.js",
-      "moudles/log/api/.gitkeep",
-      "moudles/log/assets/images/.gitkeep",
-      "moudles/log/assets/styles/.gitkeep",
-      "moudles/log/pages/index/index.js",
-      "moudles/log/pages/index/index.json",
-      "moudles/log/pages/index/index.wxml",
-      "moudles/log/pages/index/index.wxss",
-      "moudles/log/store/.gitkeep",
-      "packages/webview/api/.gitkeep",
-      "packages/webview/assets/images/.gitkeep",
-      "packages/webview/assets/styles/.gitkeep",
-      "packages/webview/pages/index/index.js",
-      "packages/webview/pages/index/index.json",
-      "packages/webview/pages/index/index.wxml",
-      "packages/webview/pages/index/index.wxss",
-      "packages/webview/store/.gitkeep",
-      "pages/splash/index.js",
-      "pages/splash/index.json",
-      "pages/splash/index.wxml",
-      "pages/splash/index.wxss",
-      "store/user.js",
-      "utils/httpclient/cookie.js",
-      "utils/httpclient/index.js",
-      "utils/httpclient/request.js",
-      "utils/common.js",
-      "utils/emitter.js",
-      "utils/env.js",
-      "utils/error.js",
-      "utils/update.js",
-      "utils/wxp.js"
-    ];
+  async renderTplFile() {
+    const target = [];
+
+    walkSync(fullPath, (path, newpath) => {
+      if (!skips.includes(path)) {
+        if (newpath) {
+          path = path.replace(`${fullPath}/`, "");
+          newpath = newpath.replace(`${fullPath}/`, "");
+          target.push([path, newpath]);
+        } else {
+          path = path.replace(`${fullPath}/`, "");
+          target.push(path);
+        }
+      }
+    });
 
     _.forEach(target, file => {
       let toFile;
