@@ -2,6 +2,14 @@ const path = require("path");
 const fs = require("fs");
 
 /**
+ * 提供特定于平台的路径片段分隔符
+ * @returns
+ */
+function sep() {
+  return path.sep;
+}
+
+/**
  * 绝对路径
  * @param {*} dir 目录
  */
@@ -33,5 +41,6 @@ function walkSync(currentDirPath, callback) {
   });
 }
 
+module.exports.sep = sep;
 module.exports.resolvePath = resolvePath;
 module.exports.walkSync = walkSync;

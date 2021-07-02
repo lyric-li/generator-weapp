@@ -3,10 +3,13 @@ const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
 const _ = require("lodash");
-const { resolvePath, walkSync } = require("./file");
+const { sep, resolvePath, walkSync } = require("./file");
 
 const fullPath = resolvePath("./templates");
-const skips = [`${fullPath}/package.json`, `${fullPath}/project.config.json`];
+const skips = [
+  `${fullPath}${sep()}package.json`,
+  `${fullPath}${sep()}project.config.json`
+];
 
 module.exports = class extends Generator {
   // Note: arguments and options should be defined in the constructor.
@@ -102,11 +105,11 @@ module.exports = class extends Generator {
     walkSync(fullPath, (path, newpath) => {
       if (!skips.includes(path)) {
         if (newpath) {
-          path = path.replace(`${fullPath}/`, "");
-          newpath = newpath.replace(`${fullPath}/`, "");
+          path = path.replace(`${fullPath}${sep()}`, "");
+          newpath = newpath.replace(`${fullPath}${sep()}`, "");
           target.push([path, newpath]);
         } else {
-          path = path.replace(`${fullPath}/`, "");
+          path = path.replace(`${fullPath}${sep()}`, "");
           target.push(path);
         }
       }
