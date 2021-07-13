@@ -29,6 +29,20 @@ export function array2obj (
 }
 
 /**
+ * 对象转数组
+ * @param {*} arr 目标对象
+ * @param {*} k1 key1
+ * @param {*} k2 key2
+ */
+export function obj2Array (
+  obj = {},
+  k1 = 'value',
+  k2 = 'label'
+) {
+  return Object.entries(obj).map(([key, value]) => ({ [k1]: key, [k2]: value }));
+}
+
+/**
  * 格式化时间
  * @param {*} date 日期
  * @returns
