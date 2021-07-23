@@ -2,8 +2,6 @@
 
 > 基于 Yeoman 的微信小程序脚手架生成器
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-
 ## 使用说明
 
 安装依赖
@@ -14,7 +12,6 @@ git clone https://gitee.com/lyric-li/generator-weapp.git
 npm install -g file:/full/path/generator-weapp
 ```
 
-
 生产新项目模板
 ```bash
 mkdir weapp-demo
@@ -22,18 +19,7 @@ cd weapp-demo
 yo weapp
 ```
 
-
-[npm-image]: https://badge.fury.io/js/generator-weapp.svg
-[npm-url]: https://npmjs.org/package/generator-weapp
-[travis-image]: https://travis-ci.com/lyric-li/generator-weapp.svg?branch=master
-[travis-url]: https://travis-ci.com/lyric-li/generator-weapp
-[daviddm-image]: https://david-dm.org/lyric-li/generator-weapp.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/lyric-li/generator-weapp
-[coveralls-image]: https://coveralls.io/repos/lyric-li/generator-weapp/badge.svg
-[coveralls-url]: https://coveralls.io/r/lyric-li/generator-weapp
-
-
-## 生产模板工程使用规范
+## 生成模板工程使用规范
 
 ### 项目安装
 
@@ -85,7 +71,8 @@ npm install
 
 代码格式、命名规范等，以 `ESLint Recommended` 规范为基础标准
 
-- 字符串统一用 `''`
+- 字符串统一用 `""`
+- 结尾使用`;`
 - 判断相等统一用 `===`
 
 CSS 遵从 [`BEM`](https://www.jianshu.com/p/54b000099217) 规范
