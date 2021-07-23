@@ -38,12 +38,6 @@
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
   },
-  "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#00C5CD",
-    "borderStyle": "white",
-    "list": []
-  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
